@@ -1,0 +1,2 @@
+    int tempR;
+    int tempC;
