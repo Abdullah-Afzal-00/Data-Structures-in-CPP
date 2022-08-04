@@ -133,6 +133,25 @@ void deleteNode (int pos){
     }
 }
 
+void sortedInsert(T data ){
+    if(head == NULL or data <= head->data ) addHead(data);
+    else {
+        Node<T>* p = head;
+        Node<T>* q = NULL;
+        while(p and p->data < data){
+            q = p;
+            p = p->next;
+        }
+        if(p == NULL) addTail(data);
+        else {
+            Node<T>* t = new Node<T>;
+            t->data = data;
+            t->next = q->next;
+            q->next = t;
+        }
+    }
+}
+
 void insertNode(T data , int pos){
     if(pos == 1) addHead(data);
     else{
@@ -155,15 +174,18 @@ void insertNode(T data , int pos){
 
 int main(){
     Linked_List<int> l1;
-    l1.addHead(8);
-    l1.addTail(10);
-    l1.addHead(50);
-    l1.addTail(90);
-    l1.display();
+    // l1.addHead(8);
+    // l1.addTail(10);
+    // l1.addHead(50);
+    // l1.addTail(90);
+    // l1.display();
    //l1.deleteHead();
     //l1.deleteTail();
     //l1.deleteNode(4);
-    l1.insertNode(30,2);
+    l1.sortedInsert(30);
+    l1.sortedInsert(5);
+    l1.sortedInsert(10);
+    l1.sortedInsert(12);
     l1.display();
     return 0;
 }
