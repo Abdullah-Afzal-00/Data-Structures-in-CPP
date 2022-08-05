@@ -152,6 +152,15 @@ void sortedInsert(T data ){
     }
 }
 
+Node<T>* search(T data){
+    Node<T>* p = head;
+    while(p != NULL){
+        if(p->data == data ) return p;
+        p = p->next;
+    }
+    return NULL;
+}
+
 void insertNode(T data , int pos){
     if(pos == 1) addHead(data);
     else{
@@ -182,10 +191,16 @@ int main(){
    //l1.deleteHead();
     //l1.deleteTail();
     //l1.deleteNode(4);
+
     l1.sortedInsert(30);
     l1.sortedInsert(5);
     l1.sortedInsert(10);
     l1.sortedInsert(12);
+
+    //     Node<int>* s;
+    // s = l1.search(100);
+    // if(s == NULL ) cout<<"\nNot Found\n";
+    // else cout<<"\nFound\n";
     l1.display();
     return 0;
 }
